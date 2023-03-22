@@ -1,0 +1,29 @@
+{
+  "name": "AI Phishing Detector",
+  "version": "1.0.01",
+  "description": "A phishing detector plugin",
+  "permissions": ["activeTab","declarativeContent", "storage", "webNavigation"],
+  "icons":{
+        "16":"/images/16.png",
+        "48":"/images/48.png",
+        "128":"/images/128.png"
+   },
+  "background": {
+    "scripts": [
+      "js/jquery.js",
+      "js/classifier.js",
+      "js/background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_popup": "plugin_ui.html"
+  },
+  "content_scripts":[
+    {
+      "matches": ["http://*/*","https://*/*"],
+      "js": ["js/jquery.js","js/features.js"]
+    }
+  ],
+  "manifest_version": 2
+}
